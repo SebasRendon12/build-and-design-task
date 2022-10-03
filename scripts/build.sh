@@ -1,4 +1,4 @@
 #!/bin/bash
 
-Vendor/bin/premake/premake5 gmake2
+Vendor/bin/premake/premake5.exe gmake2
 make
