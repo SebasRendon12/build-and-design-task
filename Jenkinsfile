@@ -4,7 +4,8 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'echo "Building..."'
-                sh 'chmod 744 scripts/build.sh'
+                sh 'chmod +x scripts/build.sh'
+                sh 'chmod +x Vendor/bin/premake/premake5.exe'
                 sh 'scripts/build.sh'
                 archiveArtifacts artifacts: 'bin/Debug/*', fingerprint:true
             }
@@ -12,7 +13,8 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'echo "Running..."'
-                sh 'chmod 744 scripts/run.sh'
+                sh 'chmod +x scripts/run.sh'
+                sh 'chmod +x Vendor/bin/premake/premake5.exe'
                 sh 'scripts/run.sh'
             }
         }
