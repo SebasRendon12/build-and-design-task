@@ -4,7 +4,7 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'echo "Building..."'
-                sh 'chmod +x scripts/build.sh'
+                sh 'chmod 744 scripts/build.sh'
                 sh 'scripts/build.sh'
                 archiveArtifacts artifacts: 'bin/Debug/*', fingerprint:true
             }
@@ -12,7 +12,7 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'echo "Running..."'
-                sh 'chmod +x scripts/run.sh'
+                sh 'chmod 744 scripts/run.sh'
                 sh 'scripts/run.sh'
             }
         }
