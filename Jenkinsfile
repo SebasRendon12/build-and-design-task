@@ -5,7 +5,6 @@ pipeline {
             steps {
                 sh 'echo "Building..."'
                 sh 'chmod +x scripts/build.sh'
-                sh 'chmod +x Vendor/bin/premake/premake5.exe'
                 sh 'scripts/build.sh'
                 archiveArtifacts artifacts: 'bin/Debug/*', fingerprint:true
             }
@@ -14,7 +13,6 @@ pipeline {
             steps {
                 sh 'echo "Running..."'
                 sh 'chmod +x scripts/run.sh'
-                sh 'chmod +x Vendor/bin/premake/premake5.exe'
                 sh 'scripts/run.sh'
             }
         }
